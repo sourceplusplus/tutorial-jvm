@@ -1,0 +1,19 @@
+spp:
+  platform_host: "localhost"
+  platform_port: 5450
+skywalking:
+  logging:
+    level: "WARN"
+  agent:
+    service_name: "docker"
+    is_cache_enhanced_class: true
+    class_cache_mode: "FILE"
+  collector:
+    backend_service: "localhost:11800"
+  plugin:
+    toolkit:
+      log:
+        grpc:
+          reporter:
+            server_host: "localhost"
+            server_port: "11800"
