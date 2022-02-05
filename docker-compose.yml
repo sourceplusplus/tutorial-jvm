@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   spp-platform:
-    image: sourceplusplus/spp-platform:0.2.1
+    image: sourceplusplus/spp-platform:0.3.1
     container_name: spp-platform
     hostname: spp-platform
     ports:
@@ -25,7 +25,7 @@ services:
     container_name: redis
     hostname: redis
   skywalking-oap:
-    image: sourceplusplus/spp-oap-server:0.2.1
+    image: sourceplusplus/spp-oap-server:0.3.1
     container_name: skywalking-oap
     hostname: skywalking-oap
     ports:
