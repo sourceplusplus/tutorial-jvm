@@ -13,6 +13,7 @@ skywalking:
   plugin:
     toolkit:
       log:
+        transmit_formatted: false
         grpc:
           reporter:
             server_host: "localhost"
