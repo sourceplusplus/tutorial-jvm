@@ -11,6 +11,9 @@ buildscript {
     }
 }
 
+plugins {
+    id("com.ryandens.javaagent-application") version "0.3.2"
+}
 apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
@@ -24,9 +27,12 @@ version = '1.0.0'
 
 repositories {
     mavenCentral()
+    maven { url "https://pkg.sourceplus.plus/sourceplusplus/probe-jvm" }
 }
 
 dependencies {
+    javaagent("plus.sourceplus.probe:probe-jvm:0.5.4")
+
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -35,18 +41,4 @@ dependencies {
 
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'
     testImplementation('org.springframework.boot:spring-boot-starter-test')
-}
-
-class Download extends DefaultTask {
-    @Input String sourceUrl
-    @OutputFile File target
-
-    @TaskAction
-    void download() {
-        ant.get(src: sourceUrl, dest: target)
-    }
-}
-
-run {
-    jvmArgs += ["-javaagent:spp-probe-0.4.2.jar"]
 }
