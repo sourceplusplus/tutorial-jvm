@@ -1,7 +1,7 @@
 spp:
   platform_host: "localhost"
   platform_port: 5450
-  disable_tls: true
+  ssl_enabled: false
 skywalking:
   logging:
     level: "WARN"
